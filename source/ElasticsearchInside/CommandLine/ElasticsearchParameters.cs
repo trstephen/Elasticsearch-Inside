@@ -110,13 +110,14 @@ namespace ElasticsearchInside.CommandLine
             get { return string.Join(" ", _customCommandlineArguments); }
         }
 
-        [BooleanArgument(@"-cp "";.\*;lib\*;lib\sigar\*""", true)]
+        [BooleanArgument(@"-cp ""lib\*""", true)]
         internal object ClassPath { get; set; }
 
         [BooleanArgument("\"org.elasticsearch.bootstrap.Elasticsearch\"", true)]
         internal object JarFile { get; set; }
 
-       
+        [BooleanArgument("start", true)]
+        internal object ESArgument { get; set; }
 
         public IElasticsearchParameters HeapSize(int initialHeapsizeMB = 128, int maximumHeapsizeMB = 128)
         {
